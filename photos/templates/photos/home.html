@@ -5,13 +5,15 @@
     <title>Bienvenido a Frikr - Como Flickr, pero en Friki</title>
 </head>
 <body>
-<h1>Bienvenido a Frikr</h1>
-<p>Como Flickr, pero en Friki.</p>
+    <h1>Bienvenido a Frikr</h1>
+    <p>Como Flickr, pero en Friki.</p>
 
     {% if photos_list|length %}
-        <h2> Últimas fotos publicadas </h2>>
+        <h2> Últimas fotos publicadas </h2>
         {% for photo in photos_list %}
-            <img src="{{photo.url}}" alt="{{photo.name}}" height="150">
+            <a href="photos/{{photo.pk}}">
+                <img src="{{photo.url}}" alt="{{photo.name}}" height="150">
+            </a>
         {% endfor %}
     {% else %}
         Sé el primero en publicar una foto!

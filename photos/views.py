@@ -22,12 +22,6 @@ def home(request):
     return HttpResponse(render(request, "photos/home.html", context))
 
 
-def hola(request):
-    print "Hola hola"
-    print request
-    return HttpResponse(render(request, "photos/detail.html"))
-
-
 def detail(request, pk):
     """
     Carga la página de detalle de una foto
