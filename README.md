@@ -1,1 +1,3 @@
-"# Frikr" 
+# Frikr 
+
+Like Flikr but Friki
