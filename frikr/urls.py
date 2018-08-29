@@ -15,16 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from photos import views
-import users
+from photos import views as views_photos
+from users import views as views_users
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # Photos URLs
-    url(r'^$', views.home, name='photos_home'),
-    url(r'^photos/(?P<pk>[0-9]+)$', views.detail, name='photo_detail'),
+    url(r'^$', views_photos.home, name='photos_home'),
+    url(r'^photos/(?P<pk>[0-9]+)$', views_photos.detail, name='photo_detail'),
 
     # Users URLs
-    # url(r'^login$', users.views.login, name='users_login'),
-    url(r'^logout$', users.views.logout, name='users_logout'),
+    url(r'^login$', views_users.login, name='users_login'),
+    url(r'^logout$', views_users.logout, name='users_logout'),
 ]

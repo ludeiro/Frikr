@@ -9,9 +9,9 @@
         <a href="{% url 'photos_home' %}">Home</a>
 
         {% if user.is_authenticated %}
-            <a href="{% url user_logout' %}">Salir</a>
+            <a href="{% url 'users_logout' %}">Salir</a>
         {% else %}
-            <a href="{% url user_logout' %}">Entrar</a>
+            <a href="{% url 'users_login' %}">Entrar</a>
         {% endif %}
 
     </nav>

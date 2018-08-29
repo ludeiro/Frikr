@@ -13,7 +13,6 @@ def home(request):
     :param request: HttpRequest
     :return:
     """
-    print ("Home")
     photos = Photo.objects.filter(visibility=PUBLIC).order_by('-created_at')
     context = {
         'photos_list': photos[:5]
