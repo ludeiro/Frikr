@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>{% block title %} Bienvenido a Frikr - Como Flickr, pero en Friki {% endblock %}</title>
 </head>
 <body>
     <nav>
@@ -10,11 +10,11 @@
     </nav>
     <hr>
     <section>
-
+        {% block section %}{% endblock %}
     </section>
     <hr>
-    <footer>
-        <small>Frikr Inc &copy, all rights reserved.</small>
-    </footer>
+
+    <small>Frikr Inc &copy, all rights reserved.</small>
+
 </body>
 </html>
