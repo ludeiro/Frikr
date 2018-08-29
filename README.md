@@ -1,3 +1,3 @@
 # Frikr 
 
-Like Flickr but Friki
+Like Flickr but Freak
