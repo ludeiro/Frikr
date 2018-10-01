@@ -5,7 +5,7 @@
     <h1>Bienvenido a Frikr</h1>
     <p>Como Flickr, pero en Friki.</p>
 
-    {% if photos_list|length %}
+    {% if photos_list|length > 0 %}
         <h2> Últimas fotos publicadas </h2>
         {% for photo in photos_list %}
             <a href="{% url 'photo_detail' photo.pk %}">
