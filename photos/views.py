@@ -13,6 +13,8 @@ def home(request):
     :param request: HttpRequest
     :return:
     """
+    # Filtramos las fotos por visibilidad
+    #Recuperamos fotos en orden inverso a la fecha de creación -
     photos = Photo.objects.filter(visibility=PUBLIC).order_by('-created_at')
     context = {
         'photos_list': photos[:5]
