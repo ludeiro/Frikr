@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for frikr project.
 
@@ -143,3 +144,15 @@ LOGGING = {
         }
     }
 }
+
+# LOGIN URL
+LOGIN_URL = '/login'  # Cuando un user no este autenticado, le redirige a /login
+
+# LICENSES
+LICENSES = (
+    ('QUE', 'Quentin Tarantino'),
+    ('DSH', 'Dr. Schutlz')
+)
+
+# BADWORDS http://goo.gl/G2nCu7
+BADWORDS = [u'Abollao', u'Abrazafarolas', u'Afilasables', u'Analfabestia', u'Apollardao', u'Caracartón']
