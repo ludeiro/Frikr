@@ -9,8 +9,17 @@ from photos.forms import PhotoForm
 from photos.models import Photo, PUBLIC
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.db.models import Q
+
+
+class LoginRequired(View):
+    """
+    Redirects to login if user is anonymous
+    """
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoginRequired, self).dispatch(*args, **kwargs)
 
 
 class PhotosQueryset(object):
@@ -104,7 +113,7 @@ class CreateView(View):
         return render(request, 'photos/new_photo.html', context)
 
 
-class ListView(View, PhotosQueryset):
+class PhotoListView(View, PhotosQueryset):
 
     def get(self, request):
         """
@@ -120,3 +129,15 @@ class ListView(View, PhotosQueryset):
         }
 
         return render(request, 'photos/photos_list.html', context)
+
+
+class UserPhotoView(LoginRequired, ListView):
+    model = Photo
+    template_name = 'photos/user_photos.html'
+
+    def get_queryset(self):
+        queryset = super(UserPhotoView, self).get_queryset()
+        return queryset.filter(owner=self.request.user)
+
+
+
